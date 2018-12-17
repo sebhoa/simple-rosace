@@ -76,8 +76,8 @@ Ainsi notre objet Rosace comporte deux attributs pour le moment, une **table** e
 ```python
     class Rosace:
 
-        # ici la définition de notre classe : ces attributs
-        # ces méthodes...
+        # ici la définition de notre classe : 
+        # ces attributs, ces méthodes...
 ```
 
 
@@ -133,8 +133,9 @@ Dès lors le dessin des segments se fait par une petite boucle :
 
 ```python
     for n in range(1, modulo):
-        mul = (table * n) % modulo
-        # tracer_segment du point de n vers le point de mul
+        m = (table * n) % modulo
+        # ici le code pour tracer un segment 
+        # du point de n vers le point de m
 ```
 
 
