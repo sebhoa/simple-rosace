@@ -2,6 +2,8 @@
 
 ## Introduction
 
+Ce projet a été inspiré par la présentation de Mickaël Launay : [La face cachée des tables de multiplications][1]
+
 Nous allons voir comment avec de simples tables de multiplications, un cercle, des segments nous pouvons dessiner de belles rosaces colorées. Nous utiliserons pour cela l'objet Turtle de Python. 
 
 Comme il n'y a aucune difficulté algorithmique, nous en profiterons pour essayer de coder proprement en utilsant deux concepts de *pros* :
@@ -17,6 +19,10 @@ Avant d'aller plus loin voilà un exemple d'appel à notre script et le résulta
 
 
 ![Une belle rosace](Figs/21_360.png)
+
+
+[1]:https://youtu.be/-X49VQgi86E
+
 
 
 ## Le principe
