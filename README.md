@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Ce projet a été inspiré par la présentation de Mickaël Launay : [La face cachée des tables de multiplications][1]
+Ce projet a été inspiré par la présentation de Mickaël Launay : [La face cachée des tables de multiplication][1]
 
-Nous allons voir comment avec de simples tables de multiplications, un cercle, des segments nous pouvons dessiner de belles rosaces colorées. Nous utiliserons pour cela l'objet Turtle de Python. 
+Nous allons voir comment avec de simples tables de multiplication, un cercle, des segments nous pouvons dessiner de belles rosaces colorées. Nous utiliserons pour cela l'objet Turtle de Python. 
 
-Comme il n'y a aucune difficulté algorithmique, nous en profiterons pour essayer de coder proprement en utilsant deux concepts de *pros* :
+Comme il n'y a aucune difficulté algorithmique, nous en profiterons pour essayer de coder proprement en utilisant deux concepts de *pros* :
 
 - la programmation orientée objet avec héritage
 - l'utilisation de la ligne de commande avec options
@@ -64,7 +64,7 @@ Et modulo 360 :
 
 ![La table de 2 modulo 36](Figs/etape_04.png)
 
-C'est mieux non ? Notre exemple en introduction correspond à un modulo de 360 pour la table de 21 avec une couleur générée aléatoirement. Dans la suite, nous allons voir comment la programmation objet de Python va nous permettre de faire cela.
+C'est mieux non ? Notre exemple en introduction correspond à un modulo de 360 pour la table de 21 avec une couleur générée aléatoirement. Pour le logo de cet article il s'agit de la table de 190, toujours avec un modulo de 360. Dans la suite, nous allons voir comment la programmation objet de Python va nous permettre de faire cela.
 
 
 ## L'objet Rosace
@@ -297,7 +297,10 @@ La méthode de l'objet Turtle permettant de récupérer les coordonnées de la p
 ```
 
 
-Encore une fois le code de cette méthode est très simple. Nous commençons par nous positionner an bas de l'écran. Nous calculons la portion d'arc correspondant à un point (soit 360 divisé par le nombre total de points). Il ne reste plus qu'à répéter autant de fois que nécessaire : mémorisation de la position courante et avancer d'un petit arc de cercle.
+Encore une fois le code de cette méthode est très simple. Nous commençons par nous positionner en bas de l'écran. Nous calculons la portion d'arc correspondant à un point (soit 360 divisé par le nombre total de points). Il ne reste plus qu'à répéter autant de fois que nécessaire : 
+
+1. mémoriser la position courante
+2. avancer d'un petit arc de cercle.
 
 ## Et pour finir : changer les options, rajouter de la couleur
 
