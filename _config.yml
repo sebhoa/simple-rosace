@@ -1,7 +1,8 @@
 theme: jekyll-theme-minimal
-logo : /Figs/190_360.png
-# plugins:
-#   - jekyll-relative-links
+logo: /Figs/190_360.png
+plugins:
+   - jekyll-relative-links
+   - jemoji
 # relative_links:
 #   enabled: true
 #   collections: true
