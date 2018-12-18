@@ -379,9 +379,9 @@ Si l'option `-t` est présente (c'est ce que demande le test `if args.t`), alors
 
 Pour l'option `-c` si elle est présente, on modifie la couleur de notre tortue. La méthode (de l'objet Turtle) est `color` qui prend en paramètre une couleur... mais voyons cela en détail dans notre dernier chapitre.
 
-## La couleur avec Turtle
+### La couleur avec Turtle
 
-La méthode pour régler la couleur de votre ~crayon~ tortue est `color`, dont voici des exemples d'utilisation :
+La méthode pour régler la couleur de votre ~~crayon~~ tortue est `color`, dont voici des exemples d'utilisation :
 
 ```python
 une_tortue.color()
