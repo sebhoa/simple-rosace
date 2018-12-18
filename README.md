@@ -418,6 +418,8 @@ J'espère que vous n'avez pas eu trop de mal à suivre ce tuto qui mine de rien 
 - [une suite de TP pour appréhender la tortue][5]
 - [un tuto complet sur le module argparse][6] il est assez dense car argparse est un module très puissant. Dans 90% des cas un copié-collé de ce que vous avez déjà fait (ie ce qu'il y a dans cet article) suffira :wink:
 
+A titre d'exercice, vous pouvez faire la même chose pour dessiner des polygones réguliers. En option on fournit le nombre de côtés (entre 3 et 12 par exemple) et le script dessine un beau gros polygone centré dans notre fenêtre graphique. Une autre option pour colorier le polygone ? Une troisième pour spécifier la couleur ? Bref les variantes sont nombreuses, à vous de tester et de coder ce dont vous avez envie. A très bientôt.
+
 
 [1]:https://youtu.be/-X49VQgi86E
 [2]:/simple-rosace/rosace.py
