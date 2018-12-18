@@ -410,7 +410,18 @@ def random_color(self):
     return tuple([random.randint(0,255) for _ in range(3)])
 ```
 
+## Conclusion
+
+J'espère que vous n'avez pas eu trop de mal à suivre ce tuto qui mine de rien présente pas mal de concepts. N'hésitez pas à consulter : 
+
+- [la doc officielle python à propos du module turtle][4]
+- [une suite de TP pour appréhender la tortue][5]
+- [un tuto complet sur le module argparse][6] il est assez dense car argparse est un module très puissant. Dans 90% des cas un copié-collé de ce que vous avez déjà fait (ie ce qu'il y a dans cet article) suffira :wink:
+
 
 [1]:https://youtu.be/-X49VQgi86E
 [2]:/simple-rosace/rosace.py
 [3]:https://htmlcolorcodes.com/fr/noms-de-couleur/ 
+[4]:https://docs.python.org/3.3/library/turtle.html?highlight=turtle
+[5]:https://zestedesavoir.com/tutoriels/944/a-la-decouverte-de-turtle/
+[6]:https://docs.python.org/fr/3/howto/argparse.html
