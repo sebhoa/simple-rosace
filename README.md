@@ -21,7 +21,8 @@ Avant d'aller plus loin voilà un exemple d'appel à notre script et le résulta
 ![Une belle rosace](Figs/21_360.png)
 
 
-[1]:https://youtu.be/-X49VQgi86E
+L'ensemble du code est disponible ici : [rosace.py][2]
+
 
 
 
@@ -305,3 +306,111 @@ Encore une fois le code de cette méthode est très simple. Nous commençons par
 ## Et pour finir : changer les options, rajouter de la couleur
 
 
+### Les options et la ligne de commande
+
+Au début de l'article nous avons vu le lancement du script par la commande :
+
+```python
+    ./rosace.py -m 360 -t 21 -c
+```
+
+Comment notre script va-t-il récupérer ces informations ? Nous allons utiliser pour cela le module `argparse`
+
+Ce module permet à la fois de définir les options de notre script et de *parser* la ligne de commande pour en récupérer les informations.
+
+Commençons par importer le module et définir un nouvel objet `ArgumentParser`
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+```
+
+Maintenant que nous avons notre parser, il faut rajouter les options possibles. Ici nous en avons trois pour changer la valeur de la table, la valeur du modulo et dessiner notre rosace en couleur.
+
+```python
+parser.add_argument('-t', help="Un entier entre 2 et 9,\
+                                la table qu'on va dessiner")
+parser.add_argument('-m', help="Un diviseur de 360")
+parser.add_argument('-c', help="Rajoute de la couleur", action='store_true')
+```
+
+Nous avons donc nos trois options `-t`, `-m`, `-c`. Les deux premières doivent être accompagnées d'une valeur, la troisième devra juste être présente ou pas. C'est ce que signifie le `action='store_true'` : l'option présente vaudra `True`.
+
+Cette première étape faite, il nous faut maintenant faire les traitements appropriés lors de la détection de la présence des options. Notez que `argparse` nous offre une option gratuite : `-h` qui permet d'afficher les messages d'aides que nous avons défini avec chacune des options.
+
+```python
+./rosace.py -h
+```
+
+```
+usage: rosace.py [-h] [-t T] [-m M] [-c]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -t T        Un entier entre 2 et 9, la table qu on va dessiner
+  -m M        Un diviseur de 360
+  -c          Rajoute de la couleur
+```
+
+Voyons maintenant comment traiter ces options. L'idée est ultra-simple : on teste présence de chaque option avec un `if`. Si l'option est présente, on fait ce qu'il faut. Par exemple récupérer la valeur associée et s'en servir pour initialiser notre table ou notre modulo.
+
+Ci-dessous les trois `if` dont nous avons besoin ici :
+
+```python
+args = parser.parse_args()
+if args.t:
+    self.table = int(args.t)
+if args.m:
+    modulo = int(args.m)
+    if 360 % modulo == 0:
+        self.modulo = modulo
+if args.c:
+    self.color(self.random_color())
+```
+
+On commence par *parser* les arguments : 
+
+```python
+args = parser.parse_args()
+```
+
+Si l'option `-t` est présente (c'est ce que demande le test `if args.t`), alors la valeur associée est affectée à notre attribut table (attention la valeur récupérée est une chaîne de caractères d'où la nécessité de la transformer en `int`). Pareil pour le modulo avec un test supplémentaire sur le fait qu'on a bien un diviseur de 360... si ces options sont absentes, on gardera les valeurs par défaut choisies à la création de notre instance de rosace.
+
+Pour l'option `-c` si elle est présente, on modifie la couleur de notre tortue. La méthode (de l'objet Turtle) est `color` qui prend en paramètre une couleur... mais voyons cela en détail dans notre dernier chapitre.
+
+## La couleur avec Turtle
+
+La méthode pour régler la couleur de votre ~crayon~ tortue est `color`, dont voici des exemples d'utilisation :
+
+```python
+une_tortue.color()
+```
+
+Sans argument, renvoie la couleur actuelle.
+
+```python
+une_tortue.color('blue')
+```
+
+Avec une chaîne de caractères : règle la couleur sur la couleur représentée par le nom donné (si reconnu évidemment). D'autres couleurs identifées par leur nom sous la forme d'une chaîne de caractères sont disponibles :
+`'black'`, `'white'`, `'red'`... J'ai trouvé un site qui propose cette [liste des noms de couleurs][3], je ne sais pas si toutes sont reconnues par le module turtle.
+
+On peut aussi définir une couleur par un triplet : les composantes Rouge Vert et Bleu (RGB) de la couleur. Les éléments de ce triplet sont soit des float (entre 0 et 1) c'est le mode reconnu par défaut, soit des entiers entre 0 et 255. Pour ma par je trouve ce moment plus pratique à utiliser mais il nécessite de la dire à python :
+
+```python
+une_tortue.screen.modecolor(255)
+une_tortue.color((176, 77, 23)) # je ne sais pas du tout c'est quoi cette couleur ;-)
+```
+
+Associé au module `random` et à sa fonction `randint`, nous avons ce qu'il nous faut pour générer notre couleur aléatoire :
+
+```python
+def random_color(self):
+    return tuple([random.randint(0,255) for _ in range(3)])
+```
+
+
+[1]:https://youtu.be/-X49VQgi86E
+[2]:/rosace.py
+[3]:https://htmlcolorcodes.com/fr/noms-de-couleur/ 
